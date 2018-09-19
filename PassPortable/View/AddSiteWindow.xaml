@@ -1,0 +1,61 @@
+﻿<Window x:Class="PassPortable.AddSiteWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Height="{Binding Height, FallbackValue=400}" Width="{Binding Width, FallbackValue=251}"
+        WindowStyle="None"
+        AllowsTransparency="True">
+    <Grid Background="Black" Opacity="0.88">
+        <Grid Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+            <StackPanel Margin="20">
+                <TextBlock Text="ADD NEW SITE" FontSize="20" />
+                <StackPanel>
+                    <Label Content="url:"/>
+                    <TextBox x:Name="tbxUrlAdd" Text="{Binding Url}">
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="Return" 
+                                Command="{Binding AddSiteCommand}"/>
+                        </TextBox.InputBindings>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Username:"/>
+                    <TextBox x:Name="tbxUsernameAdd" Text="{Binding Username}">
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="Return" 
+                                Command="{Binding AddSiteCommand}"/>
+                        </TextBox.InputBindings>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel>
+                    <Label Content="Password:"/>
+                    <TextBox x:Name="tbxPasswordAdd" Text="{Binding Password}">
+                        <TextBox.InputBindings>
+                            <KeyBinding Key="Return" 
+                                Command="{Binding AddSiteCommand}"/>
+                        </TextBox.InputBindings>
+                    </TextBox>
+                </StackPanel>
+                <StackPanel>
+                    <ComboBox SelectedValue="{Binding TagId, Mode=TwoWay}" ItemsSource="{Binding TagIds}">
+                        <ComboBox.InputBindings>
+                            <KeyBinding Key="Return" 
+                                Command="{Binding AddSiteCommand}"/>
+                        </ComboBox.InputBindings>
+                    </ComboBox>
+                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Content="Ok" Command="{Binding AddSiteCommand}" CommandParameter="{Binding ElementName=tbxPasswordAdd}"/>
+                    <Button Grid.Column="1" Content="Cancel" Command="{Binding ClosePopUpCommand}"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

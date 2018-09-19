@@ -1,0 +1,53 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:PassPortable">
+
+    <Color x:Key="BackgroundDark">#4c4c4c</Color>
+    <SolidColorBrush x:Key="BackgroundDarkBrush" Color="{StaticResource BackgroundDark}"></SolidColorBrush>
+
+    <Color x:Key="TextLightGrey">#e5e5e5</Color>
+    <SolidColorBrush x:Key="TextLightGreyBrush" Color="{StaticResource TextLightGrey}"></SolidColorBrush>
+
+    <Color x:Key="TextDarkerGrey">#c1c1c1</Color>
+    <SolidColorBrush x:Key="TextDarkerGreyBrush" Color="{StaticResource TextDarkerGrey}"></SolidColorBrush>
+
+    <Color x:Key="BackgroundDarkLighter">#606060</Color>
+    <SolidColorBrush x:Key="BackgroundDarkBrushLighter" Color="{StaticResource BackgroundDarkLighter}"></SolidColorBrush>
+
+    <Color x:Key="ForegroundMain">#e5e5e5</Color>
+    <SolidColorBrush x:Key="ForegroundMainBrush" Color="{StaticResource ForegroundMain}"></SolidColorBrush>
+
+    <Color x:Key="ForegroundVeryLight">#ffffff</Color>
+    <SolidColorBrush x:Key="ForegroundVeryLightBrush" Color="{StaticResource ForegroundVeryLight}"></SolidColorBrush>
+
+    <Color x:Key="ForegroundDark">#2d2d2d</Color>
+    <SolidColorBrush x:Key="ForegroundDarkBrush" Color="{StaticResource ForegroundDark}"></SolidColorBrush>
+
+    <Color x:Key="TitleBarColor">#212121</Color>
+    <SolidColorBrush x:Key="TitleBarColorBrush" Color="{StaticResource TitleBarColor}"></SolidColorBrush>
+
+    <Color x:Key="DarkRed">#7f2b2b</Color>
+    <SolidColorBrush x:Key="DarkRedBrush" Color="{StaticResource DarkRed}"></SolidColorBrush>
+
+    <Color x:Key="Blue">#3e9ef2</Color>
+    <SolidColorBrush x:Key="BlueBrush" Color="{StaticResource Blue}"></SolidColorBrush>
+
+    <Color x:Key="HoverBlue">#215684</Color>
+    <SolidColorBrush x:Key="HoverBlueBrush" Color="{StaticResource HoverBlue}"></SolidColorBrush>
+
+    <Color x:Key="DisabledBlue">#4F5B66</Color>
+    <SolidColorBrush x:Key="DisabledBlueBrush" Color="{StaticResource DisabledBlue}"></SolidColorBrush>
+
+    <Color x:Key="GoogleColor">#dd4b39</Color>
+    <SolidColorBrush x:Key="GoogleColorBrush" Color="{StaticResource GoogleColor}"></SolidColorBrush>
+
+    <Color x:Key="GoogleColorHover">#6d1d12</Color>
+    <SolidColorBrush x:Key="GoogleColorHoverBrush" Color="{StaticResource GoogleColorHover}"></SolidColorBrush>
+
+    <Color x:Key="FacebookColor">#4c66a4</Color>
+    <SolidColorBrush x:Key="FacebookColorBrush" Color="{StaticResource FacebookColor}"></SolidColorBrush>
+
+    <Color x:Key="FacebookColorHover">#283657</Color>
+    <SolidColorBrush x:Key="FacebookColorHoverBrush" Color="{StaticResource FacebookColorHover}"></SolidColorBrush>
+
+</ResourceDictionary>

@@ -1,0 +1,47 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:PassPortable">
+
+    <ResourceDictionary.MergedDictionaries>
+        <!--Rheinfolge ist wichtig!-->
+        <ResourceDictionary Source="Colors.xaml"/>
+        <ResourceDictionary Source="Fonts.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="{x:Type TabItem}" x:Key="CusomTab" BasedOn="{StaticResource BaseStyle}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Padding" Value="50 10 50 10" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TabItem}">
+                    <Border x:Name="PART_Border" Background="{TemplateBinding Background}" Width="160" BorderThickness="4 0 0 0" BorderBrush="{StaticResource BackgroundDarkBrush}" Padding="50 10 50 10">
+                        <ContentPresenter ContentSource="Header" Margin="2"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="PART_Border" Property="BorderBrush" Value="#FF00F3FF"/>
+                            <Setter TargetName="PART_Border" Property="Background" Value="{StaticResource ForegroundDarkBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True" SourceName="PART_Border">
+                            <Setter TargetName="PART_Border" Property="Background" Value="{StaticResource BackgroundDarkBrushLighter}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="TabItemText" TargetType="{x:Type TextBlock}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=TabItem}}" Value="True">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontFamily" Value="{StaticResource LatoHeavy}"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsSelected, RelativeSource={RelativeSource AncestorType=TabItem}}" Value="False">
+                <Setter Property="Foreground" Value="{StaticResource TextDarkerGreyBrush}"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,117 @@
+﻿<Window x:Class="PassPortable.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PassPortable"
+        mc:Ignorable="d"
+        MinWidth="{Binding WindowMinumumWidth}"
+        MinHeight="{Binding WindowMinumumHeight}"
+        Title="PassPortable" Height="627" Width="1227"
+        Top="{Binding Top}" Left="{Binding Left}"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        x:Name="MainAppWindow"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <!-- Outer Border with drop shadow marking-->
+                        <Border Padding="{Binding OuterMarginSizeThickness, FallbackValue=10}">
+                            <!--Main Window Outline-->
+                            <Grid>
+
+                                <!--Opacity mask for corners on grid-->
+                                <Border x:Name="Container"
+                                        Background="{StaticResource BackgroundDarkBrushLighter}"
+                                        CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}"/>
+
+                                <!-- Main Border with border and dropshadow-->
+                                <Border CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}"
+                                        Background="{Binding ForegroundMain, FallbackValue=#2d2d2d}">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="0" Opacity="0.2"/>
+                                    </Border.Effect>
+                                </Border>
+
+                                <!-- Main window content-->
+                                <Grid>
+
+                                    <!--Corner clipping-->
+                                    <Grid.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=Container}"/>
+                                    </Grid.OpacityMask>
+
+                                    <Grid.RowDefinitions>
+                                        <!--TitleBar-->
+                                        <RowDefinition Height="{Binding TitleHeightGridLenght, FallbackValue=30}"/>
+                                        <!--Window Content-->
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <!--TitleBar-->
+
+                                    <Grid Grid.Column="0" Panel.ZIndex="1" Background="{StaticResource TitleBarColorBrush}">
+                                        <Grid.ColumnDefinitions>
+                                            <!--Icon-->
+                                            <ColumnDefinition Width="Auto"/>
+                                            <!--Title-->
+                                            <ColumnDefinition Width="*"/>
+                                            <!--Widnows Buttons-->
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <!--Icon-->
+                                        <Button Style="{StaticResource SystemIconButton}" Command="{Binding MenuCommand}" Grid.Column="0">
+                                            <Image Source="/Images/Logo/Logo.png"/>
+                                        </Button>
+                                        <!--Title Text-->
+                                        <Viewbox Grid.Column="0" Grid.ColumnSpan="3" Margin="0">
+                                            <TextBlock Style="{StaticResource HeaderText}" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title}"/>
+                                        </Viewbox>
+                                        <!--Window buttons-->
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                            <Button Command="{Binding MinimizeCommand}" Style="{StaticResource WindowControlButton}" Content="_" />
+                                            <Button Command="{Binding MaximizeCommand}" Style="{StaticResource WindowControlButton}" Content="[ ]" />
+                                            <Button Command="{Binding CloseCommand}" Style="{StaticResource WindowCloseButton}" Content="X" />
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <!--Main Window Content (Page Content)-->
+                                    <Grid Grid.Row="1">
+                                        <Grid>
+                                            <Image Visibility="{Binding MainImageVisibility}" Stretch="UniformToFill"  Source="/Images/Backgrounds/mountain.jpg">
+                                                <Image.Effect>
+                                                    <BlurEffect Radius="50"/>
+                                                </Image.Effect>
+                                            </Image>
+                                        </Grid>
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </Grid>
+
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <WindowChrome.WindowChrome>
+        <WindowChrome 
+            ResizeBorderThickness="{Binding ResizeBorderThickness}"
+            CaptionHeight="{Binding TitleHeight}"
+            CornerRadius="0"
+            GlassFrameThickness="0"
+            />
+    </WindowChrome.WindowChrome>
+
+
+    <Grid>
+        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
+
+        <Button Visibility="Hidden" Command="{Binding ChangePageCommand}"/>
+
+    </Grid>
+</Window>

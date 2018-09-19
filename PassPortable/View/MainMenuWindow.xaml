@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="PassPortable.MainMenuWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PassPortable"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+       Background="{StaticResource BackgroundDarkBrush}">
+    <Grid>
+        <TabControl TabStripPlacement="left" SelectedIndex="1">
+            <TabItem Style="{StaticResource CusomTab}" IsEnabled="False">
+                <TabItem.Header>
+                    <TextBlock Text="General" Foreground="Gray" />
+                </TabItem.Header>
+            </TabItem>
+            <TabItem Margin="-2 0 0 0" Style="{StaticResource CusomTab}">
+                <TabItem.Header>
+                    <TextBlock Text="Password" Style="{StaticResource TabItemText}"/>
+                </TabItem.Header>
+                <local:PasswordListWindow/>
+            </TabItem>
+            <TabItem Margin="-2 0 0 0" Style="{StaticResource CusomTab}">
+                <TabItem.Header>
+                    <TextBlock Text="Generate" Style="{StaticResource TabItemText}"/>
+                </TabItem.Header>
+                <local:GeneratePasswordWindow/>
+            </TabItem>
+            <TabItem Style="{StaticResource CusomTab}" IsEnabled="False">
+                <TabItem.Header>
+                    <TextBlock Text="" Padding="0 0 0 230"/>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem Margin="-2 0 0 0" Style="{StaticResource CusomTab}">
+                <TabItem.Header>
+                    <TextBlock Text="About" Style="{StaticResource TabItemText}"/>
+                </TabItem.Header>
+                <local:AboutWindow/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>

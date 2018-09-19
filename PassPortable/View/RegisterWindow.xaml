@@ -1,0 +1,21 @@
+﻿<Window x:Class="PassPortable.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PassPortable"
+        mc:Ignorable="d"
+        Height="198.603" Width="292.179"
+        MinHeight="198.603" MinWidth="292.179"
+        MaxHeight="198.603" MaxWidth="292.179"
+        WindowStartupLocation="CenterScreen"
+        Title="Register Local Account">
+    <Grid>
+        <StackPanel>
+            <Label Content="Work in progress"/>
+            <TextBox Tag="Username" Text="{Binding Username}"/>
+            <PasswordBox Grid.Column="1"  Tag="Password" BorderBrush="{StaticResource BlueBrush}" Padding="10" Margin="0 0 0 5" BorderThickness="0 0 0 1" x:Name="UserPassword" />
+            <Button Content="Submit" Command="{Binding RegisterCommand}" CommandParameter="{Binding ElementName=UserPassword}"/>
+        </StackPanel>
+    </Grid>
+</Window>
