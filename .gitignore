@@ -259,3 +259,7 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+/Application/app.publish
+/Application/PassPortable.application
+/Application/PassPortable.exe.config
+/Application/PassPortable.exe.manifest
