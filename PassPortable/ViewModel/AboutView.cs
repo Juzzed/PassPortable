@@ -32,7 +32,7 @@ namespace PassPortable
 
         public void Contact()
         {
-            MessageBox.Show("themultijuce@gmail.com");
+            MessageBox.Show("https://github.com/Juzzed/");
         }
 
     }
